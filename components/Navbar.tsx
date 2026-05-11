@@ -42,8 +42,8 @@ export function Navbar() {
   }, [pathname]);
 
   return (
-    <header className="sticky inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)]">
-      <div className="mx-auto mt-3 w-[min(1180px,92vw)] rounded-full border border-washi/10 bg-sumi/75 px-4 py-3 backdrop-blur-md md:mt-4 md:px-5 md:py-4">
+    <header className="sticky inset-x-0 top-2 z-50 md:top-0">
+      <div className="mx-auto w-[min(1180px,92vw)] rounded-full border border-washi/10 bg-sumi/75 px-4 py-3 backdrop-blur-md md:mt-4 md:px-5 md:py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="group">
             <p className="font-heading text-base tracking-[0.3em] text-washi md:text-lg md:tracking-[0.35em]">
