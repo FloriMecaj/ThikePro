@@ -27,7 +27,12 @@ const links = [
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      fill="currentColor"
+      aria-hidden="true"
+    >
       <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5Zm8.94 1.13a.94.94 0 1 1 0 1.88.94.94 0 0 1 0-1.88ZM12 6.8A5.2 5.2 0 1 1 6.8 12 5.2 5.2 0 0 1 12 6.8Zm0 1.5A3.7 3.7 0 1 0 15.7 12 3.7 3.7 0 0 0 12 8.3Z" />
     </svg>
   );
@@ -77,7 +82,12 @@ export function Navbar() {
 
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="icon" size="icon" className="md:hidden" aria-label="Open navigation menu">
+              <Button
+                variant="icon"
+                size="icon"
+                className="md:hidden"
+                aria-label="Open navigation menu"
+              >
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
@@ -107,16 +117,21 @@ export function Navbar() {
                     <p className="text-[10px] uppercase tracking-[0.38em] text-gold/80">
                       刃 / THE ART OF THE BLADE
                     </p>
-                    <SheetTitle className="text-2xl tracking-[0.26em]">THIKE PRO</SheetTitle>
+                    <SheetTitle className="text-2xl tracking-[0.26em]">
+                      THIKE PRO
+                    </SheetTitle>
                     <SheetDescription className="max-w-[16rem] text-[10px] tracking-[0.28em] text-washi/55">
-                      職人 · A luxury knife atelier language shaped for Tirana.
+                      職人 · A luxury knife atelier for Tirana.
                     </SheetDescription>
                   </SheetHeader>
 
                   <div className="mt-4 rounded-[1.2rem] border border-gold/15 bg-black/20 px-4 py-3">
-                    <p className="text-[10px] uppercase tracking-[0.34em] text-gold/80">あなたの名前を刃に</p>
+                    <p className="text-[10px] uppercase tracking-[0.34em] text-gold/80">
+                      あなたの名前を刃に
+                    </p>
                     <p className="mt-2 text-sm leading-6 text-washi/68">
-                      Free personalization, premium presentation, and direct consultation through Instagram.
+                      Free personalization, premium presentation, and direct
+                      consultation through Instagram.
                     </p>
                   </div>
                 </motion.div>
@@ -129,7 +144,10 @@ export function Navbar() {
                       key={link.href}
                       initial={{ opacity: 0, x: 12 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.08 + index * 0.05, duration: 0.22 }}
+                      transition={{
+                        delay: 0.08 + index * 0.05,
+                        duration: 0.22,
+                      }}
                     >
                       <SheetClose asChild>
                         <Link
@@ -145,7 +163,9 @@ export function Navbar() {
                               0{index + 1}
                             </span>
                             <span>
-                              <span className="block text-sm uppercase tracking-[0.28em]">{link.label}</span>
+                              <span className="block text-sm uppercase tracking-[0.28em]">
+                                {link.label}
+                              </span>
                               <span className="mt-1 block text-[10px] uppercase tracking-[0.32em] text-washi/45 group-hover:text-gold/70">
                                 {index === 0 && "ホーム / Entry"}
                                 {index === 1 && "匠 / Brand Story"}
@@ -169,12 +189,20 @@ export function Navbar() {
                 >
                   <SheetFooter className="gap-2.5">
                     <SheetClose asChild>
-                      <Button asChild variant="outline" className="w-full justify-center">
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="w-full justify-center"
+                      >
                         <Link href="/contact">Order Now</Link>
                       </Button>
                     </SheetClose>
                     <Button asChild className="w-full justify-center">
-                      <Link href="https://www.instagram.com/thike_pro/" target="_blank" rel="noreferrer">
+                      <Link
+                        href="https://www.instagram.com/thike_pro/"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         <InstagramIcon className="h-4 w-4" />
                         Instagram
                       </Link>
