@@ -36,11 +36,15 @@ export function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <div className="mx-auto mt-4 w-[min(1180px,92vw)] rounded-full border border-washi/10 bg-sumi/75 px-5 py-4 backdrop-blur-md">
+      <div className="mx-auto mt-3 w-[min(1180px,92vw)] rounded-full border border-washi/10 bg-sumi/75 px-4 py-3 backdrop-blur-md md:mt-4 md:px-5 md:py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="group">
-            <p className="font-heading text-lg tracking-[0.35em] text-washi">THIKE PRO</p>
-            <p className="text-[10px] uppercase tracking-[0.34em] text-gold/80">職人</p>
+            <p className="font-heading text-base tracking-[0.3em] text-washi md:text-lg md:tracking-[0.35em]">
+              THIKE PRO
+            </p>
+            <p className="text-[9px] uppercase tracking-[0.28em] text-gold/80 md:text-[10px] md:tracking-[0.34em]">
+              職人
+            </p>
           </Link>
 
           <nav className="hidden items-center gap-8 md:flex">
