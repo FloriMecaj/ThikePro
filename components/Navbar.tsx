@@ -70,29 +70,63 @@ export function Navbar() {
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="md:hidden">
-              <SheetHeader className="pt-10">
-                <SheetTitle>THIKE PRO</SheetTitle>
-                <SheetDescription>職人 · Precision for Tirana</SheetDescription>
+            <SheetContent
+              side="right"
+              className="border-l border-gold/20 bg-[radial-gradient(circle_at_top,rgba(201,168,76,0.14),transparent_30%),linear-gradient(180deg,rgba(245,240,232,0.05),transparent_28%),linear-gradient(145deg,rgba(90,100,114,0.18),rgba(26,26,26,0.96))] px-5 pb-6 pt-5 md:hidden"
+            >
+              <div className="pointer-events-none absolute inset-0 paper-noise opacity-50" />
+              <div className="pointer-events-none absolute -right-10 top-24 font-heading text-[9rem] leading-none text-gold/5">
+                匠
+              </div>
+              <div className="pointer-events-none absolute bottom-16 left-[-1rem] h-40 w-px bg-gradient-to-b from-transparent via-blade/80 to-transparent" />
+
+              <SheetHeader className="relative z-10 pt-8">
+                <p className="text-[10px] uppercase tracking-[0.38em] text-gold/80">刃 / THE ART OF THE BLADE</p>
+                <SheetTitle className="text-3xl tracking-[0.28em]">THIKE PRO</SheetTitle>
+                <SheetDescription className="max-w-[18rem] text-[11px] tracking-[0.3em] text-washi/55">
+                  職人 · A luxury knife atelier language shaped for Tirana.
+                </SheetDescription>
               </SheetHeader>
-              <Separator className="my-8 bg-washi/10" />
-              <nav className="flex flex-col gap-3">
-                {links.map((link) => (
+              <Separator className="relative z-10 my-6 bg-gradient-to-r from-blade via-gold/50 to-transparent" />
+              <nav className="relative z-10 flex flex-col gap-2.5">
+                {links.map((link, index) => (
                   <SheetClose asChild key={link.href}>
                     <Link
                       href={link.href}
-                      className={`rounded-2xl border px-4 py-4 text-base uppercase tracking-[0.28em] transition ${
+                      className={`group rounded-[1.35rem] border px-4 py-3 transition duration-300 ${
                         pathname === link.href
-                          ? "border-blade bg-blade/10 text-washi"
-                          : "border-washi/10 bg-white/[0.02] text-washi/75 hover:border-blade hover:text-washi"
+                          ? "border-blade bg-blade/10 text-washi shadow-[0_0_24px_rgba(139,26,26,0.18)]"
+                          : "border-washi/10 bg-white/[0.02] text-washi/75 hover:border-gold/40 hover:bg-white/[0.04] hover:text-washi"
                       }`}
                     >
-                      {link.label}
+                      <div className="flex items-center justify-between gap-4">
+                        <div className="flex items-center gap-4">
+                          <span className="font-heading text-xs tracking-[0.26em] text-gold/70">
+                            0{index + 1}
+                          </span>
+                          <div>
+                            <p className="text-base uppercase tracking-[0.28em]">{link.label}</p>
+                            <p className="mt-1 text-[10px] uppercase tracking-[0.32em] text-washi/45 group-hover:text-gold/70">
+                              {index === 0 && "ホーム / Entry"}
+                              {index === 1 && "匠 / Brand Story"}
+                              {index === 2 && "鋼 / Collection"}
+                              {index === 3 && "連絡 / Order"}
+                            </p>
+                          </div>
+                        </div>
+                        <span className="h-px w-8 bg-gradient-to-r from-blade to-transparent transition group-hover:w-12" />
+                      </div>
                     </Link>
                   </SheetClose>
                 ))}
               </nav>
-              <SheetFooter className="mt-8">
+              <div className="relative z-10 mt-6 rounded-[1.35rem] border border-washi/10 bg-black/20 p-4">
+                <p className="text-[10px] uppercase tracking-[0.34em] text-gold/80">あなたの名前を刃に</p>
+                <p className="mt-2 text-sm leading-6 text-washi/68">
+                  Free personalization, premium presentation, and direct consultation through Instagram.
+                </p>
+              </div>
+              <SheetFooter className="relative z-10 mt-6 gap-2.5 pb-1">
                 <SheetClose asChild>
                   <Button asChild variant="outline" className="w-full justify-center">
                     <Link href="/contact">Order Now</Link>
@@ -105,6 +139,10 @@ export function Navbar() {
                   </Link>
                 </Button>
               </SheetFooter>
+              <div className="relative z-10 mt-5 flex items-center justify-between border-t border-washi/10 pt-4 text-[10px] uppercase tracking-[0.34em] text-washi/40">
+                <span>Tirana / Albania</span>
+                <span>鋼</span>
+              </div>
             </SheetContent>
           </Sheet>
         </div>
