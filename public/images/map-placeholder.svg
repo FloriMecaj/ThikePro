@@ -1,0 +1,20 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#1A1A1A"/>
+  <rect x="72" y="72" width="1056" height="656" rx="24" stroke="#C9A84C" stroke-opacity=".3" stroke-width="2"/>
+  <path d="M147 152H1053" stroke="#5A6472" stroke-opacity=".4" stroke-width="2" stroke-dasharray="12 10"/>
+  <path d="M147 258H1053" stroke="#5A6472" stroke-opacity=".24" stroke-width="2" stroke-dasharray="12 10"/>
+  <path d="M147 364H1053" stroke="#5A6472" stroke-opacity=".24" stroke-width="2" stroke-dasharray="12 10"/>
+  <path d="M147 470H1053" stroke="#5A6472" stroke-opacity=".24" stroke-width="2" stroke-dasharray="12 10"/>
+  <path d="M147 576H1053" stroke="#5A6472" stroke-opacity=".24" stroke-width="2" stroke-dasharray="12 10"/>
+  <path d="M270 118V682" stroke="#5A6472" stroke-opacity=".28" stroke-width="2" stroke-dasharray="12 10"/>
+  <path d="M476 118V682" stroke="#5A6472" stroke-opacity=".28" stroke-width="2" stroke-dasharray="12 10"/>
+  <path d="M682 118V682" stroke="#5A6472" stroke-opacity=".28" stroke-width="2" stroke-dasharray="12 10"/>
+  <path d="M888 118V682" stroke="#5A6472" stroke-opacity=".28" stroke-width="2" stroke-dasharray="12 10"/>
+  <path d="M168 608C309 523 425 469 569 409C700 354 819 274 935 167" stroke="#F5F0E8" stroke-opacity=".14" stroke-width="22" stroke-linecap="round"/>
+  <circle cx="633" cy="374" r="38" fill="#8B1A1A"/>
+  <circle cx="633" cy="374" r="70" stroke="#8B1A1A" stroke-opacity=".35" stroke-width="2"/>
+  <path d="M633 320C612 320 595 337 595 358C595 385 633 430 633 430C633 430 671 385 671 358C671 337 654 320 633 320Z" fill="#C9A84C"/>
+  <circle cx="633" cy="359" r="12" fill="#1A1A1A"/>
+  <text x="633" y="514" text-anchor="middle" fill="#F5F0E8" fill-opacity=".84" font-family="Georgia, serif" font-size="42" letter-spacing="8">TIRANA</text>
+  <text x="633" y="560" text-anchor="middle" fill="#C9A84C" fill-opacity=".84" font-family="Arial, sans-serif" font-size="18" letter-spacing="5">RRUGA IBRAHIM RUGOVA</text>
+</svg>
