@@ -27,7 +27,7 @@ const SheetOverlay = React.forwardRef<
 SheetOverlay.displayName = SheetPrimitive.Overlay.displayName;
 
 const sheetVariants = cva(
-  "fixed z-50 flex flex-col gap-4 overflow-y-auto border-washi/10 bg-sumi/95 p-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] shadow-2xl backdrop-blur-xl will-change-transform",
+  "fixed z-50 flex flex-col gap-4 overflow-hidden border-washi/10 bg-sumi/95 p-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] shadow-2xl backdrop-blur-xl will-change-transform",
   {
     variants: {
       side: {

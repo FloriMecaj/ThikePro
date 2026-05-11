@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -33,6 +35,11 @@ function InstagramIcon({ className }: { className?: string }) {
 
 export function Navbar() {
   const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
@@ -68,7 +75,7 @@ export function Navbar() {
             </Link>
           </nav>
 
-          <Sheet>
+          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="icon" size="icon" className="md:hidden" aria-label="Open navigation menu">
                 <Menu className="h-5 w-5" />
@@ -76,77 +83,109 @@ export function Navbar() {
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="border-l border-gold/20 bg-[radial-gradient(circle_at_top,rgba(201,168,76,0.14),transparent_30%),linear-gradient(180deg,rgba(245,240,232,0.05),transparent_28%),linear-gradient(145deg,rgba(90,100,114,0.18),rgba(26,26,26,0.96))] px-5 pb-6 pt-5 md:hidden"
+              className="border-l border-gold/20 bg-[radial-gradient(circle_at_top,rgba(201,168,76,0.14),transparent_30%),linear-gradient(180deg,rgba(245,240,232,0.05),transparent_28%),linear-gradient(145deg,rgba(90,100,114,0.18),rgba(26,26,26,0.96))] px-4 pb-5 pt-4 md:hidden"
             >
               <div className="pointer-events-none absolute inset-0 paper-noise opacity-50" />
               <div className="pointer-events-none absolute -right-10 top-24 font-heading text-[9rem] leading-none text-gold/5">
                 匠
               </div>
               <div className="pointer-events-none absolute bottom-16 left-[-1rem] h-40 w-px bg-gradient-to-b from-transparent via-blade/80 to-transparent" />
+              <SheetTitle className="sr-only">Menu</SheetTitle>
+              <motion.div
+                initial={{ opacity: 0, x: 24 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
+                className="relative z-10 flex min-h-full flex-col pt-8"
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.05, duration: 0.24 }}
+                  className="rounded-[1.4rem] border border-washi/10 bg-white/[0.04] p-4 backdrop-blur-sm"
+                >
+                  <SheetHeader>
+                    <p className="text-[10px] uppercase tracking-[0.38em] text-gold/80">
+                      刃 / THE ART OF THE BLADE
+                    </p>
+                    <SheetTitle className="text-2xl tracking-[0.26em]">THIKE PRO</SheetTitle>
+                    <SheetDescription className="max-w-[16rem] text-[10px] tracking-[0.28em] text-washi/55">
+                      職人 · A luxury knife atelier language shaped for Tirana.
+                    </SheetDescription>
+                  </SheetHeader>
 
-              <SheetHeader className="relative z-10 pt-8">
-                <p className="text-[10px] uppercase tracking-[0.38em] text-gold/80">刃 / THE ART OF THE BLADE</p>
-                <SheetTitle className="text-3xl tracking-[0.28em]">THIKE PRO</SheetTitle>
-                <SheetDescription className="max-w-[18rem] text-[11px] tracking-[0.3em] text-washi/55">
-                  職人 · A luxury knife atelier language shaped for Tirana.
-                </SheetDescription>
-              </SheetHeader>
-              <Separator className="relative z-10 my-6 bg-gradient-to-r from-blade via-gold/50 to-transparent" />
-              <nav className="relative z-10 flex flex-col gap-2.5">
-                {links.map((link, index) => (
-                  <SheetClose asChild key={link.href}>
-                    <Link
-                      href={link.href}
-                      className={`group rounded-[1.35rem] border px-4 py-3 transition duration-300 ${
-                        pathname === link.href
-                          ? "border-blade bg-blade/10 text-washi shadow-[0_0_24px_rgba(139,26,26,0.18)]"
-                          : "border-washi/10 bg-white/[0.02] text-washi/75 hover:border-gold/40 hover:bg-white/[0.04] hover:text-washi"
-                      }`}
+                  <div className="mt-4 rounded-[1.2rem] border border-gold/15 bg-black/20 px-4 py-3">
+                    <p className="text-[10px] uppercase tracking-[0.34em] text-gold/80">あなたの名前を刃に</p>
+                    <p className="mt-2 text-sm leading-6 text-washi/68">
+                      Free personalization, premium presentation, and direct consultation through Instagram.
+                    </p>
+                  </div>
+                </motion.div>
+
+                <Separator className="my-5 bg-gradient-to-r from-blade via-gold/50 to-transparent" />
+
+                <div className="flex flex-col gap-2.5">
+                  {links.map((link, index) => (
+                    <motion.div
+                      key={link.href}
+                      initial={{ opacity: 0, x: 12 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.08 + index * 0.05, duration: 0.22 }}
                     >
-                      <div className="flex items-center justify-between gap-4">
-                        <div className="flex items-center gap-4">
-                          <span className="font-heading text-xs tracking-[0.26em] text-gold/70">
-                            0{index + 1}
+                      <SheetClose asChild>
+                        <Link
+                          href={link.href}
+                          className={`group flex items-center justify-between rounded-[1.25rem] border px-4 py-3 transition duration-300 ${
+                            pathname === link.href
+                              ? "border-blade bg-blade/10 text-washi shadow-[0_0_24px_rgba(139,26,26,0.18)]"
+                              : "border-washi/10 bg-white/[0.02] text-washi/75 hover:border-gold/40 hover:bg-white/[0.04] hover:text-washi"
+                          }`}
+                        >
+                          <span className="flex items-center gap-3">
+                            <span className="font-heading text-xs tracking-[0.26em] text-gold/70">
+                              0{index + 1}
+                            </span>
+                            <span>
+                              <span className="block text-sm uppercase tracking-[0.28em]">{link.label}</span>
+                              <span className="mt-1 block text-[10px] uppercase tracking-[0.32em] text-washi/45 group-hover:text-gold/70">
+                                {index === 0 && "ホーム / Entry"}
+                                {index === 1 && "匠 / Brand Story"}
+                                {index === 2 && "鋼 / Collection"}
+                                {index === 3 && "連絡 / Order"}
+                              </span>
+                            </span>
                           </span>
-                          <div>
-                            <p className="text-base uppercase tracking-[0.28em]">{link.label}</p>
-                            <p className="mt-1 text-[10px] uppercase tracking-[0.32em] text-washi/45 group-hover:text-gold/70">
-                              {index === 0 && "ホーム / Entry"}
-                              {index === 1 && "匠 / Brand Story"}
-                              {index === 2 && "鋼 / Collection"}
-                              {index === 3 && "連絡 / Order"}
-                            </p>
-                          </div>
-                        </div>
-                        <span className="h-px w-8 bg-gradient-to-r from-blade to-transparent transition group-hover:w-12" />
-                      </div>
-                    </Link>
-                  </SheetClose>
-                ))}
-              </nav>
-              <div className="relative z-10 mt-6 rounded-[1.35rem] border border-washi/10 bg-black/20 p-4">
-                <p className="text-[10px] uppercase tracking-[0.34em] text-gold/80">あなたの名前を刃に</p>
-                <p className="mt-2 text-sm leading-6 text-washi/68">
-                  Free personalization, premium presentation, and direct consultation through Instagram.
-                </p>
-              </div>
-              <SheetFooter className="relative z-10 mt-6 gap-2.5 pb-1">
-                <SheetClose asChild>
-                  <Button asChild variant="outline" className="w-full justify-center">
-                    <Link href="/contact">Order Now</Link>
-                  </Button>
-                </SheetClose>
-                <Button asChild className="w-full justify-center">
-                  <Link href="https://www.instagram.com/thike_pro/" target="_blank" rel="noreferrer">
-                    <InstagramIcon className="h-4 w-4" />
-                    Instagram
-                  </Link>
-                </Button>
-              </SheetFooter>
-              <div className="relative z-10 mt-5 flex items-center justify-between border-t border-washi/10 pt-4 text-[10px] uppercase tracking-[0.34em] text-washi/40">
-                <span>Tirana / Albania</span>
-                <span>鋼</span>
-              </div>
+                          <span className="h-px w-8 bg-gradient-to-r from-blade to-transparent transition group-hover:w-12" />
+                        </Link>
+                      </SheetClose>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.22, duration: 0.24 }}
+                  className="mt-auto pt-5"
+                >
+                  <SheetFooter className="gap-2.5">
+                    <SheetClose asChild>
+                      <Button asChild variant="outline" className="w-full justify-center">
+                        <Link href="/contact">Order Now</Link>
+                      </Button>
+                    </SheetClose>
+                    <Button asChild className="w-full justify-center">
+                      <Link href="https://www.instagram.com/thike_pro/" target="_blank" rel="noreferrer">
+                        <InstagramIcon className="h-4 w-4" />
+                        Instagram
+                      </Link>
+                    </Button>
+                  </SheetFooter>
+                  <div className="mt-4 flex items-center justify-between border-t border-washi/10 pt-4 text-[10px] uppercase tracking-[0.34em] text-washi/40">
+                    <span>Tirana / Albania</span>
+                    <span>鋼</span>
+                  </div>
+                </motion.div>
+              </motion.div>
             </SheetContent>
           </Sheet>
         </div>
