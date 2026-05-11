@@ -11,8 +11,8 @@ export const metadata = {
 const cards = [
   {
     label: "Phone",
-    value: "+355 67 216 7753",
-    href: "tel:+355672167753",
+    value: "+355 67 216 7773",
+    href: "tel:+355672167773",
   },
   {
     label: "Instagram",
@@ -45,14 +45,21 @@ export default function ContactPage() {
               const content = (
                 <Card className="rounded-[1.5rem] bg-white/[0.03]">
                   <CardContent className="px-5 py-6">
-                    <p className="text-xs uppercase tracking-[0.32em] text-gold">{card.label}</p>
+                    <p className="text-xs uppercase tracking-[0.32em] text-gold">
+                      {card.label}
+                    </p>
                     <p className="mt-3 text-lg text-washi/85">{card.value}</p>
                   </CardContent>
                 </Card>
               );
 
               return card.href ? (
-                <Link key={card.label} href={card.href} target="_blank" className="block">
+                <Link
+                  key={card.label}
+                  href={card.href}
+                  target="_blank"
+                  className="block"
+                >
                   {content}
                 </Link>
               ) : (
@@ -63,12 +70,16 @@ export default function ContactPage() {
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Button asChild>
-              <Link href="https://www.instagram.com/thike_pro/" target="_blank" rel="noreferrer">
+              <Link
+                href="https://www.instagram.com/thike_pro/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Send a DM on Instagram
               </Link>
             </Button>
             <Button asChild variant="outline">
-              <Link href="tel:+355672167753">Call Now</Link>
+              <Link href="tel:+355672167773">Call Now</Link>
             </Button>
             <Button asChild variant="outline">
               <Link
@@ -96,13 +107,16 @@ export default function ContactPage() {
               />
             </div>
             <div className="flex flex-col justify-center gap-4 px-8 py-10 md:px-12">
-              <p className="text-xs uppercase tracking-[0.34em] text-gold">Visit / Tirana</p>
+              <p className="text-xs uppercase tracking-[0.34em] text-gold">
+                Visit / Tirana
+              </p>
               <h2 className="font-heading text-3xl text-washi md:text-4xl">
                 Rruga Ibrahim Rugova, in the center of the city.
               </h2>
               <p className="max-w-lg text-base leading-8 text-washi/72">
-                Use Instagram DM for the fastest response about models, engraving, and delivery.
-                Appointments and direct pickup arrangements can be coordinated privately.
+                Use Instagram DM for the fastest response about models,
+                engraving, and delivery. Appointments and direct pickup
+                arrangements can be coordinated privately.
               </p>
             </div>
           </div>
