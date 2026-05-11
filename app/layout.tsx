@@ -41,7 +41,7 @@ export default function RootLayout({
         <div className="pointer-events-none fixed inset-0 z-0 hero-grid opacity-20" />
         <div className="pointer-events-none fixed inset-0 z-0 paper-noise opacity-60" />
         <Navbar />
-        <main className="relative z-10 flex-1 pt-24">{children}</main>
+        <main className="relative z-10 flex-1">{children}</main>
         <Footer />
       </body>
     </html>
